@@ -83,7 +83,7 @@ namespace NzbDrone.Core.Datastore
         {
             var table = TableMapping.Mapper.TableNameMapping(typeof(TModel));
             var propName = property.GetMemberName().Name;
-            return builder.GroupBy($"{table}.{propName}");
+            return builder.GroupBy($"\"{table}\".\"{propName}\"");
         }
 
         public static SqlBuilder.Template AddSelectTemplate(this SqlBuilder builder, Type type)
